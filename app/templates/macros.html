@@ -1,0 +1,9 @@
+{% macro nav_link(endpoint, text) %}
+    {% if request.endpoint -%}
+        {% if request.endpoint.endswith(endpoint) -%}
+            <a class="active item" href="{{ url_for(endpoint) }}">{{text|safe}}</a>
+        {% else -%}
+            <a class="item" href="{{ url_for(endpoint) }}">{{text|safe}}</a>
+        {% endif -%}
+    {% endif -%}
+{% endmacro %}

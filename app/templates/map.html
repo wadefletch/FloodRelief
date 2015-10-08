@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Map{% endblock %}
+
+{% block head %}
+{{ map.js }}
+{% endblock %}
+
+{% block content %}
+<section>
+    <div id="map-wrapper">
+        {{ map.html }}
+    </div>
+    <div class="ui segment" id="filters">
+        <h3 class="ui header">Filter Map</h3>
+
+        <form class="ui form" method="POST" action="{{ url_for('main.map') }}">
+            {% for field in form %}
+                {% if field.type in ['CSRFTokenField', 'HiddenField'] %}
+                    {{ field() }}
+                {% else %}
+                    <div class="inline field">
+                        <div class='ui checkbox'>
+                            {{ field }}
+                            {{ field.label }}
+                        </div>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+            <button class="ui button">Go</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

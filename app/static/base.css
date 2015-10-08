@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #F0F0F0;
+}
+
+#map-wrapper {
+    height: 500px;
+    width: 69%;
+    margin-right: 1%;
+    float: left;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#filters {
+    float: right;
+    display: table-cell;
+    width: 29%;
+    height: 100%;
+    margin-left: 1%;
+    margin-top: 0;
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
+    color: #404040;
+}
+
+#add-wrapper {
+    width: 50%;
+}

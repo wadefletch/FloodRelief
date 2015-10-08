@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Location{% endblock %}
+
+{% block content %}
+<div id="add-wrapper" class="ui segment">
+    <h1 class="ui header">
+        Add Location
+    </h1>
+
+    <form class="ui form" method="POST" action="{{ url_for('main.add') }}">
+        {{ form.hidden_tag() }}
+        <div class="field">
+            {{ form.location_name.label }}
+            {{ form.location_name }}
+        </div>
+        <div class="field">
+            {{ form.address.label }}
+            {{ form.address }}
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                {{ form.water }}
+                {{ form.water.label }}
+            </div>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                {{ form.food }}
+                {{ form.food.label }}
+
+            </div>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                {{ form.supplies }}
+                {{ form.supplies.label }}
+            </div>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                {{ form.shelter }}
+                {{ form.shelter.label }}
+            </div>
+        </div>
+        <button class="ui button">Submit</button>
+    </form>
+</div>
+{% endblock %}
