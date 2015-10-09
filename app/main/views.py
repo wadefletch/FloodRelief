@@ -1,14 +1,14 @@
-from flask import Flask, render_template, redirect, url_for, flash
-from . import main
-from .forms import FilterMapForm, AddDataForm
-from .. import db
-from ..models import Location
-from flask .ext.googlemaps import Map
-import googlemaps
 from collections import OrderedDict
 
+from flask import render_template, redirect, url_for, flash
+from . import main
+from .forms import FilterMapForm, AddDataForm
+from ..models import Location
+from flask.ext.googlemaps import Map
+import googlemaps
 
 GoogleMapsAPI = googlemaps.Client(key='AIzaSyC_tuWoozjFgmRbSvwj6raddk_UFA4Fx_c')
+
 
 @main.route('/')
 def index():
@@ -25,11 +25,10 @@ def map():
     map_points = {}
     map_data = {}
     if form.validate_on_submit():
-        print 'VALIDATED'
         for field in form:
             map_points[field.id] = []
             map_data[field.id] = []
-            if field.data == True and field.type not in ['CSRFTokenField', 'HiddenField']:
+            if field.data and field.type not in ['CSRFTokenField', 'HiddenField']:
                 response = Location.query.filter(getattr(Location, field.id) == 'True').all()
                 map_points[field.id] = [(document.latitude, document.longitude) for document in response]
                 map_data[field.id] = [
@@ -70,9 +69,8 @@ def add():
         longitude = response[0]['geometry']['location']['lng']
         resource_list = []
         for field in [form.water, form.food, form.supplies, form.shelter]:
-            if field.data == True:
+            if field.data:
                 resource_list.append(field.id.title())
-        print resource_list
         loc = Location(location_name=form.location_name.data,
                        address=form.address.data,
                        latitude=latitude,
@@ -87,6 +85,7 @@ def add():
         flash("Thank You. Your location has been added.")
         return redirect(url_for('main.map'))
     return render_template('add.html', form=form)
+
 
 @main.route('/feedback')
 def feedback():
