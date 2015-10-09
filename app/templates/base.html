@@ -4,8 +4,7 @@
 
 <html>
 <head>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
     <script src="{{ url_for('static', filename='base.js') }}"></script>
     <link rel="stylesheet" type="text/css"
@@ -18,25 +17,26 @@
 <nav class="ui menu">
     {{ nav_link("main.index", "<b>Columbia Flood Relief</b>") }}
     {{ nav_link("main.map", "Map") }}
-    {{ nav_link("main.add", "Add Location") }}
+    {{ nav_link("main.add", "Add") }}
     <div class="right menu">
         {{ nav_link("main.feedback", "Submit Feedback") }}
     </div>
 </nav>
 <body>
 {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages %}
-            <div class="ui message">
-                <p>{{ message }}</p>
-            </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+{% if messages %}
+{% for message in messages %}
+<div class="ui message">
+    <p>{{ message }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 {% block content %}
 {% endblock %}
 </body>
 <footer>
-    <p>All information provided here is without any implied warranty of fitness for any purpose or use whatsoever. All information is provided in good faith by a local volunteer. {% block footer %}{% endblock %}</p>
+    <p>All information provided here is without any implied warranty of fitness for any purpose or use whatsoever. All
+        information is provided in good faith by a local volunteer. {% block footer %}{% endblock %}</p>
 </footer>
 </html>

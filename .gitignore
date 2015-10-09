@@ -9,3 +9,4 @@ Thumbs.db
 venv/
 app.py
 mongodb/
+.idea/

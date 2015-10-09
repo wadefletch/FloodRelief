@@ -34,6 +34,7 @@ def map():
                 map_data[field.id] = [
                     '<b>' + document.location_name + '</b><br>' + document.address + '<br>' + document.resources for
                     document in response]
+
     else:
         for field in form:
             map_points[field.id] = []
@@ -82,11 +83,11 @@ def add():
                        resources=', '.join(resource_list)
                        )
         loc.save()
-        flash("Thank You. Your location has been added.")
+        flash("Thank You. The location has been added.")
         return redirect(url_for('main.map'))
     return render_template('add.html', form=form)
 
 
 @main.route('/feedback')
 def feedback():
-    return redirect('mailto:feedback@columbiafloodrelief?subject=Feedback')
+    return redirect('mailto:feedback@columbiafloodrelief.com?subject=Feedback')

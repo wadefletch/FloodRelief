@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}All Locations{% endblock %}
+
+{% block content %}
+{% for loc in locations %}
+<div class="ui segment">
+    <h2 class="ui header">{{ loc.location_name }}</h2>
+    {{ loc.address }}<br>
+    {{ loc.resources }}
+</div>
+{% endfor %}
+{% endblock %}
