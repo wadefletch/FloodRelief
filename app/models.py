@@ -12,3 +12,4 @@ class Location(db.Document):
     shelter = db.StringField()
 
     resources = db.StringField()
+    hours = db.StringField()

@@ -11,25 +11,76 @@
     <div id="map-wrapper">
         {{ map.html }}
     </div>
-    <div class="ui segment" id="filters">
-        <h3 class="ui header">Filter Map</h3>
+    <div id="sidebar">
+        <div class="ui {{ config['COLOR'] }} segment" id="instructions">
+            <h3 class="ui header">Instructions</h3>
+            <ol class="ui list">
+                <li>Select the filters for the resources you need. The map will display sites that distribute exactly
+                    what you selected. We are working on improving this feature.
+                </li>
+                <li>Click a site on the map to view it's address, resources, and hours.</li>
+            </ol>
+        </div>
+        <div class="ui {{ config['COLOR'] }} segment" id="filters">
+            <h3 class="ui header">Filter Map</h3>
 
-        <form class="ui form" method="POST" action="{{ url_for('main.map') }}">
-            {% for field in form %}
+            <form class="ui form" method="POST" action="{{ url_for('main.map') }}">
+                {% for field in form %}
                 {% if field.type in ['CSRFTokenField', 'HiddenField'] %}
-                    {{ field() }}
+                {{ field() }}
                 {% else %}
-                    <div class="inline field">
-                        <div class='ui checkbox'>
-                            {{ field }}
-                            {{ field.label }}
-                        </div>
+                <div class="inline field">
+                    <div class='ui checkbox'>
+                        {{ field }}
+                        {{ field.label }}
                     </div>
+                </div>
 
                 {% endif %}
-            {% endfor %}
-            <button class="ui button">Go</button>
-        </form>
+                {% endfor %}
+                <button class="ui button">Go</button>
+            </form>
+        </div>
+        <div class="ui {{ config['COLOR'] }} segment" id="legend">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <i class="large theme middle aligned icon"></i>
+
+                    <div class="content">
+                        <div class="header">Water</div>
+
+                        <div class="description">Bottled Water, Potable Water Trucks</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="large food middle aligned icon"></i>
+
+                    <div class="content">
+                        <div class="header">Prepared Food</div>
+
+                        <div class="description">Cooked, Ready-to-eat Food</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="large cube middle aligned icon"></i>
+
+                    <div class="content">
+                        <div class="header">Supplies</div>
+
+                        <div class="description">Unprepared food, Clothing, Toiletries, Baby Supplies, Home Goods, Mattresses</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="large home middle aligned icon"></i>
+
+                    <div class="content">
+                        <div class="header">Shelter</div>
+
+                        <div class="description">Red Cross Shelters</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

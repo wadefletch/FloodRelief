@@ -9,10 +9,9 @@ import googlemaps
 
 GoogleMapsAPI = googlemaps.Client(key='AIzaSyC_tuWoozjFgmRbSvwj6raddk_UFA4Fx_c')
 
-
 @main.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('main.map'))
 
 
 @main.route('/map', methods=['GET', 'POST'])
@@ -25,16 +24,14 @@ def map():
     map_points = {}
     map_data = {}
     if form.validate_on_submit():
+        response = Location.query.filter(str(form.water.data) == Location.water,
+                                         str(form.food.data) == Location.food,
+                                         str(form.supplies.data) == Location.supplies,
+                                         str(form.shelter.data) == Location.shelter
+                                        ).all()
         for field in form:
-            map_points[field.id] = []
-            map_data[field.id] = []
-            if field.data and field.type not in ['CSRFTokenField', 'HiddenField']:
-                response = Location.query.filter(getattr(Location, field.id) == 'True').all()
-                map_points[field.id] = [(document.latitude, document.longitude) for document in response]
-                map_data[field.id] = [
-                    '<b>' + document.location_name + '</b><br>' + document.address + '<br>' + document.resources for
-                    document in response]
-
+            map_points[field.id] = [(document.latitude, document.longitude) for document in response]
+            map_data[field.id] = ['<b>' + document.location_name + '</b><br>' + document.address + '<br>' + document.resources for document in response]
     else:
         for field in form:
             map_points[field.id] = []
@@ -43,7 +40,7 @@ def map():
                 response = Location.query.filter(getattr(Location, field.id) == 'True').all()
                 map_points[field.id] = [(document.latitude, document.longitude) for document in response]
                 map_data[field.id] = [
-                    '<b>' + document.location_name + '</b><br>' + document.address + '<br>' + document.resources for
+                    '<b>' + document.location_name + '</b><br>' + document.address + '<br>' + document.resources + ' - ' + document.hours for
                     document in response]
     generated_map = Map(
         'map',
@@ -80,7 +77,8 @@ def add():
                        food=str(form.food.data),
                        supplies=str(form.supplies.data),
                        shelter=str(form.shelter.data),
-                       resources=', '.join(resource_list)
+                       resources=', '.join(resource_list),
+                       hours=str(form.hours.data)
                        )
         loc.save()
         flash("Thank You. The location has been added.")

@@ -14,9 +14,8 @@
     {% block head %}
     {% endblock %}
 </head>
-<nav class="ui menu">
-    {{ nav_link("main.index", "<b>Columbia Flood Relief</b>") }}
-    {{ nav_link("main.map", "Map") }}
+<nav class="ui {{ config['COLOR'] }} menu">
+    {{ nav_link("main.map", "<b>Columbia Flood Relief</b>") }}
     {{ nav_link("main.add", "Add") }}
     <div class="right menu">
         {{ nav_link("main.feedback", "Submit Feedback") }}

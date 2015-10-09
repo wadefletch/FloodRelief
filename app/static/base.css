@@ -18,7 +18,7 @@ html, body {
     width: 100%;
 }
 
-#filters {
+#sidebar {
     float: right;
     display: table-cell;
     width: 29%;
@@ -29,6 +29,7 @@ html, body {
 
 footer {
     font-size: 12px;
+    margin-top: 10%;
     text-align: center;
     color: #404040;
 }

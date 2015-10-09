@@ -17,4 +17,6 @@ class AddDataForm(Form):
     water = BooleanField('Water')
     food = BooleanField('Prepared Food')
     supplies = BooleanField('Supplies')
-    shelter = BooleanField('Shelter')
+    shelter = BooleanField('Shelters')
+
+    hours = StringField('Hours')
