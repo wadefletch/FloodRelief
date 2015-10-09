@@ -3,7 +3,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'shh! it\'s a secret!'
-    MONGOALCHEMY_DATABASE = 'flooding-map'
+    MONGOALCHEMY_DATABASE = 'heroku_w2l370nc'
     MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGOLAB_URI')
 
     @staticmethod
