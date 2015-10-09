@@ -81,7 +81,7 @@ def add():
                        hours=str(form.hours.data)
                        )
         loc.save()
-        flash("Thank You. The location has been added.")
+        flash("Thank You. The location has been added. You may have to refresh the page.")
         return redirect(url_for('main.map'))
     return render_template('add.html', form=form)
 
