@@ -44,9 +44,8 @@ def map():
                     document in response]
     generated_map = Map(
         'map',
-        '34.0386',
-        '-80.9675',
-        zoom='13',
+        '33.9989',
+        '-81.0159',
         style='height:100%;width:100%;',
         infobox=list(
             OrderedDict.fromkeys(map_data['water'] + map_data['food'] + map_data['supplies'] + map_data['shelter'])),
@@ -89,3 +88,7 @@ def add():
 @main.route('/feedback')
 def feedback():
     return redirect('mailto:feedback@columbiafloodrelief.com?subject=Feedback')
+
+@main.route('/water')
+def water():
+    return render_template('water.html')
