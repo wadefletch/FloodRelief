@@ -17,7 +17,7 @@ def index():
 @main.route('/map', methods=['GET', 'POST'])
 def map():
     form = FilterMapForm()
-    blue_icon_url = 'https://lh4.ggpht.com/FRLzoxHDpRHxP6aFWxxQ1OUPlWnc55ZqnO7EpLtD8FBn6EK1zBerpF9P3BE3jJ6SFLNF7P0=w9-h9'
+    blue_icon_url = 'http://www.amazedot.com/wp-content/uploads/2014/05/websiteDot.blue.png'
     green_icon_url = 'https://lh6.ggpht.com/GO-A_KjZDF9yJeeER2fajzO4MgqML-q2rccm27ynBlD6R-xOR3pJOb42WKfE0MNFtRsKwK4=w9-h9'
     red_icon_url = 'https://lh3.ggpht.com/hx6IeSRualApBd7KZB9s2N7bcHZIjtgr9VEuOxHzpd05_CZ6RxZwehpXCRN-1ps3HuL0g8Wi=w9-h9'
     yellow_icon_url = 'https://lh3.ggpht.com/XAjhu-6znztoLTr9AxuwM5v0wilaKiUJJMLKEiiFMn6lGOmBmY1Km7Kt1ohildzlIdWgkwy_5g=w9-h9'
