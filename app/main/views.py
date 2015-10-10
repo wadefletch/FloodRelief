@@ -44,8 +44,9 @@ def map():
                     document in response]
     generated_map = Map(
         'map',
-        '33.9989',
-        '-81.0159',
+        '34.0386',
+        '-80.9675',
+        zoom=13,
         style='height:100%;width:100%;',
         infobox=list(
             OrderedDict.fromkeys(map_data['water'] + map_data['food'] + map_data['supplies'] + map_data['shelter'])),
