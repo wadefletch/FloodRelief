@@ -51,7 +51,7 @@ def map():
         infobox=list(
             OrderedDict.fromkeys(map_data['water'] + map_data['food'] + map_data['supplies'] + map_data['shelter'])),
         markers={
-            red_icon_url: list(OrderedDict.fromkeys(
+            blue_icon_url: list(OrderedDict.fromkeys(
                 map_points['water'] + map_points['food'] + map_points['supplies'] + map_points['shelter']))
         }
     )
