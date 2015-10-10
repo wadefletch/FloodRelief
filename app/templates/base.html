@@ -1,9 +1,11 @@
 {% from 'macros.html' import nav_link %}
-<!DOCTYPE html>
+<!doctype html>
 
 
-<html>
+<html lang="en-US">
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A consolidated resource for information surrounding disaster relief after the Columbia Floods of 2015">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
     <script src="{{ url_for('static', filename='base.js') }}"></script>
@@ -25,7 +27,9 @@
     {% endblock %}
 </head>
 <nav class="ui {{ config['COLOR'] }} menu">
-    {{ nav_link("main.map", "<b>Columbia Flood Relief</b>") }}
+    {{ nav_link("main.map", "<span class='ui header'>Columbia Flood Relief</span>") }}
+    {{ nav_link("main.water", "Water") }}
+    {{ nav_link("main.donate", "Donate") }}
     <div class="right menu">
         {{ nav_link("main.feedback", "Submit Feedback") }}
     </div>

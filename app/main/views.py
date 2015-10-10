@@ -92,3 +92,7 @@ def feedback():
 @main.route('/water')
 def water():
     return render_template('water.html')
+
+@main.route('/donate')
+def donate():
+    return render_template('donate.html')
