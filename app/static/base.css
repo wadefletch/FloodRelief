@@ -31,6 +31,7 @@ footer {
     font-size: 12px;
     text-align: center;
     color: #404040;
+    padding-bottom: 10px;
 }
 
 #add-wrapper {
@@ -39,4 +40,11 @@ footer {
 
 #add-button {
     width: 100%;
+}
+
+#site-header {
+    text-align: center;
+    font-size: 60px;
+    padding: 20px;
+    font-weight: bold;
 }

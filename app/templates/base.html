@@ -26,16 +26,14 @@
     {% block head %}
     {% endblock %}
 </head>
-<nav class="ui {{ config['COLOR'] }} stackable menu">
-    {{ nav_link("main.map", "<span class='ui header'>Columbia Flood Relief</span>") }}
-    {{ nav_link("main.all", "Locations") }}
+<body>
+<div id="site-header">Columbia Flood Relief</div>
+<nav class="ui {{ config['COLOR'] }} stackable four item menu">
+    {{ nav_link("main.map", "Map") }}
+    {{ nav_link("main.all", "Relief Locations") }}
     {{ nav_link("main.water", "Water") }}
     {{ nav_link("main.donate", "Donate") }}
-    <div class="right menu">
-        {{ nav_link("main.feedback", "Submit Feedback") }}
-    </div>
 </nav>
-<body>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message in messages %}
@@ -50,6 +48,8 @@
 </body>
 <footer>
     <p>All information provided here is without any implied warranty of fitness for any purpose or use whatsoever. All
-        information is provided in good faith by a local volunteer. {% block footer %}{% endblock %}</p>
+        information is provided in good faith by a local volunteer. {% block footer %}{% endblock %}
+        <br><a href="mailto://feedback@columbiafloodrelief.com?subject=Feedback">Submit Feedback</a>
+    </p>
 </footer>
 </html>
