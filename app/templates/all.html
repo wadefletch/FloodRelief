@@ -3,11 +3,52 @@
 {% block title %}All Locations{% endblock %}
 
 {% block content %}
+<table class="ui celled sortable compact structured striped {{ config['COLOR'] }} table">
+    <thead>
+    <tr>
+        <th rowspan="2">Name</th>
+        <th rowspan="2">Address</th>
+        <th rowspan="2">Hours</th>
+        <th colspan="4" class="eight wide">Resources</th>
+    </tr>
+    <tr>
+        <th class="two wide">Water</th>
+        <th class="two wide">Food</th>
+        <th class="two wide">Supplies</th>
+        <th class="two wide">Shelter</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for loc in locations %}
+    <tr>
+        <td>{{ loc.location_name }}</td>
+        <td>{{ loc.address }}</td>
+        <td>{{ loc.hours }}</td>
+        <td class="center aligned">
+            {% if loc.water == 'True' %}
+            <i class="large green checkmark icon"></i>
+            {% endif %}
+        </td>
+        <td class="center aligned">
+            {% if loc.food == 'True' %}
+            <i class="large green checkmark icon"></i>
+            {% endif %}
+        </td>
+        <td class="center aligned">
+            {% if loc.supplies == 'True' %}
+            <i class="large green checkmark icon"></i>
+            {% endif %}
+        </td>
+        <td class="center aligned">
+            {% if loc.shelter == 'True' %}
+            <i class="large green checkmark icon"></i>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% for loc in locations %}
-<div class="ui segment">
-    <h2 class="ui header">{{ loc.location_name }}</h2>
-    {{ loc.address }}<br>
-    {{ loc.resources }}
-</div>
+
 {% endfor %}
 {% endblock %}

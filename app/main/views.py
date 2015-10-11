@@ -82,6 +82,10 @@ def add():
         return redirect(url_for('main.map'))
     return render_template('add.html', form=form)
 
+@main.route('/all')
+def all():
+    locations = Location.query.all()
+    return render_template('all.html', locations=locations)
 
 @main.route('/feedback')
 def feedback():
