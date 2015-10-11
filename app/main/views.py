@@ -98,3 +98,7 @@ def water():
 @main.route('/donate')
 def donate():
     return render_template('donate.html')
+
+@main.route('/damages.html')
+def damages():
+    return render_template('damages.html')

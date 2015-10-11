@@ -6,6 +6,7 @@ from flask.ext.script import Manager, Shell
 
 app = create_app(os.environ.get('FLASK_CONFIG') or 'default')
 manager = Manager(app)
+app.jinja_env.cache = {}
 
 def make_shell_context():
     return dict(app=app, db=db, Location=Location)

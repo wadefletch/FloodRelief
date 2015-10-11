@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Damage{% endblock %}
+
+{% block content %}
+<div class="ui {{ config['COLOR'] }} segment">
+    <h1 class="ui header">Property Damage</h1>
+
+    <p>After a natural disaster, there is almost always property damage. There are government programs in place through
+        agencies such as FEMA and the Small Business Administration that can provide assistance to residents and
+        businesses with property damage as a result of natural disasters.</p>
+
+    <h3 class="ui header">Resources</h3>
+    <ul class="ui list">
+        <li>You can check if your home is applicable for FEMA assistance at <a href="http://disasterassistance.gov">DisasterRelief.gov</a> or by calling 1-(800)-621-FEMA (3362).</li>
+        <li>Small Business owners who's business' were affected by the flooding should call 1-(800)-659-2955</li>
+    </ul>
+</div>
+{% endblock %}
