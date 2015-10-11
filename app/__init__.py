@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 from flask.ext.googlemaps import GoogleMaps
 from flask.ext.mongoalchemy import MongoAlchemy
+from flask.ext.compress import Compress
 from config import config
 
 db = MongoAlchemy()
+compress = Compress()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -12,6 +14,7 @@ def create_app(config_name):
 
     db.init_app(app)
     GoogleMaps(app)
+    compress.init_app(app)
 
     # attach routes and custom error pages here
 
